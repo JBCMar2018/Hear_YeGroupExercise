@@ -11,9 +11,8 @@ public class Main {
         boolean eventDone = false;
         boolean speakerDone = false;
         Speaker newSpeaker;
-        // Institution anInstitution;
         Event newEvent;
-        String name="";
+        String name = "";
         String eventAnswer = "";
         String speakerAnswer = "";
 
@@ -35,8 +34,6 @@ public class Main {
 
             System.out.println("Enter the event end date: ");
             newEvent.setEndDate(keyboard.nextLine());
-
-            //System.out.println("Your institution is called:"+anInstitution.getName());
 
 
             System.out.println("Your event information: ");
@@ -61,10 +58,9 @@ public class Main {
                 } else {
                     speakerDone = false;
                 }
-            } while (speakerDone);
+            } while (speakerDone); //speaker != true;
 
             allEvents.add(newEvent);
-            //System.out.println(newEvent.getTheSpeakers());
 
             System.out.println("Do you want to enter another event? (Y/N)");
             eventAnswer = keyboard.nextLine();
@@ -88,21 +84,9 @@ public class Main {
         x = keyboard.nextInt();
         keyboard.nextLine();
 
-            for (Event eachEvent : allEvents) {
-                // System.out.println(eachEvent.getEventNumber());
-                if (eachEvent.getEventNumber() == x) {
-                    for (Speaker eachSpeaker : eachEvent.getTheSpeakers()) {
-                        System.out.println('\n' + "These are the speakers for: " + "" + eachEvent.getEventName() + '\n' + "Speaker name:" + eachSpeaker.getSpeakerName());
-
-                    }
-                }
-
-            }
-
-        System.out.println('\n' + "What Speaker would you like to get information about?");
-        name = keyboard.nextLine();
         for (Event eachEvent : allEvents) {
-            if (eachEvent.getTheSpeakers().equals(name)){
+            // System.out.println(eachEvent.getEventNumber());
+            if (eachEvent.getEventNumber() == x) {
                 for (Speaker eachSpeaker : eachEvent.getTheSpeakers()) {
                     System.out.println('\n' + "These are the speakers for: " + "" + eachEvent.getEventName() + '\n' + "Speaker name:" + eachSpeaker.getSpeakerName());
 
@@ -111,9 +95,29 @@ public class Main {
 
         }
 
+        System.out.println('\n' + "What Speaker would you like to get event information about?");
+        name = keyboard.nextLine();
+
+        for (Event eachEvent : allEvents) {
+            // what is this ?  System.out.println(allEvents);
+            if (eachEvent.getTheSpeakers().equals(name)) {
+                for (Speaker eachSpeaker : eachEvent.getTheSpeakers()) {
+                    System.out.println('\n' + "This is the event information for the speaker: " + eachEvent.getEventName() + '\n' + "Speaker name :" + eachSpeaker.getSpeakerName() + '\n' + "Event number:" + "" + eachEvent.getEventNumber() +
+                            '\n' + "Start date: " + eachEvent.getStartDate() + '\n' + "End date: " + eachEvent.getEndDate());
+                }
+
+                //for (Speaker eachSpeaker: eachEvent.getTheSpeakers()) {
+                //System.out.println('\n' + "Event number:" + eachEvent.getEventNumber() + '\n' + "Event name :" +
+                //eachEvent.getEventName() + '\n' + "Speaker name :" + eachSpeaker.getSpeakerName ());
+
+            }
         }
+    }
 
 }
+
+        //}
+
 
 
 
