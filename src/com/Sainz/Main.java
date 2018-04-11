@@ -95,29 +95,35 @@ public class Main {
 
         }
 
+        // Fi is looking at this code
         System.out.println('\n' + "What Speaker would you like to get event information about?");
         name = keyboard.nextLine();
 
         for (Event eachEvent : allEvents) {
             // what is this ?  System.out.println(allEvents);
-            if (eachEvent.getTheSpeakers().equals(name)) {
+
                 for (Speaker eachSpeaker : eachEvent.getTheSpeakers()) {
-                    System.out.println('\n' + "This is the event information for the speaker: " + eachEvent.getEventName() + '\n' + "Speaker name :" + eachSpeaker.getSpeakerName() + '\n' + "Event number:" + "" + eachEvent.getEventNumber() +
-                            '\n' + "Start date: " + eachEvent.getStartDate() + '\n' + "End date: " + eachEvent.getEndDate());
+                    //we were doing the if condition on the list of speakers rather than the individual speaker
+                    //TheSpeakers = list ... We want to look for each speaker inside the list of speakers
+                    //literally go through everyone to find the person you want - moved if condition to below for loop
+                    if (eachSpeaker.getSpeakerName().equals(name)) {
+                    System.out.println('\n' + "This is the event information for the speaker: " + '\n' + "Speaker name: " + eachSpeaker.getSpeakerName() + '\n' + "Event number: " + "" + eachEvent.getEventNumber() +
+                            '\n' + "Event name: " + eachEvent.getEventName() + '\n' + "Start date: " + eachEvent.getStartDate() + '\n' + "End date: " + eachEvent.getEndDate());
                 }
 
-                //for (Speaker eachSpeaker: eachEvent.getTheSpeakers()) {
-                //System.out.println('\n' + "Event number:" + eachEvent.getEventNumber() + '\n' + "Event name :" +
-                //eachEvent.getEventName() + '\n' + "Speaker name :" + eachSpeaker.getSpeakerName ());
+                /* OUR INITIAL INCORRECT CODE for the above code
+                    for (Event eachEvent : allEvents) {
+                        // what is this ?  System.out.println(allEvents);
+                        if (eachEvent.getTheSpeakers().equals(name)) {
+                            for (Speaker eachSpeaker : eachEvent.getTheSpeakers()) {
+                                System.out.println('\n' + "This is the event information for the speaker: " + eachEvent.getEventName() + '\n' + "Speaker name :" + eachSpeaker.getSpeakerName() + '\n' + "Event number:" + "" + eachEvent.getEventNumber() +
+                                        '\n' + "Start date: " + eachEvent.getStartDate() + '\n' + "End date: " + eachEvent.getEndDate());
+                                        */
 
             }
         }
     }
-
-}
-
-        //}
-
+    }
 
 
 
